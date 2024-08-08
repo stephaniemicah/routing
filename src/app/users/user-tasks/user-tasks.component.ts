@@ -11,6 +11,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class UserTasksComponent {
   userId = input.required<string>();
+  message = input.required<string>();
   private usersService = inject(UsersService);
 
   userName = computed(() => this.usersService.users.find(u => u.id === this.userId())?.name);
