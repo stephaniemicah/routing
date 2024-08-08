@@ -11,6 +11,6 @@ import { Task } from './task/task.model';
   imports: [TaskComponent],
 })
 export class TasksComponent {
-  userId = input.required<string>
+  userId = input.required<string>();
   userTasks: Task[] = [];
 }
