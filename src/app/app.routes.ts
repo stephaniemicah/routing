@@ -10,6 +10,12 @@ export const routes: Routes = [
   },
   {
     path: 'users/:userId',
-    component: UserTasksComponent
+    component: UserTasksComponent,
+    children: [
+      {
+        path: 'tasks', // <your-domain>/users/<uid>/tasks
+        component: TasksComponent
+      }
+    ]
   },
 ];
