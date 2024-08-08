@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, OnInit } from '@angular/core';
+import { Component, computed, DestroyRef, inject, input, OnInit } from '@angular/core';
 
 import { TaskComponent } from './task/task.component';
 import { Task } from './task/task.model';
@@ -22,10 +22,13 @@ export class TasksComponent implements OnInit {
   );
 
   private activatedRoute = inject(ActivatedRoute);
+  private destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe({
+    const subscription = this.activatedRoute.queryParams.subscribe({
       next: (params) => (this.order = params['order']),
-    })
+    });
+
+    this.destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 }
