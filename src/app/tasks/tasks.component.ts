@@ -3,7 +3,7 @@ import { Component, computed, inject, input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { Task } from './task/task.model';
 import { TasksService } from './tasks.service';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -19,4 +19,6 @@ export class TasksComponent {
   userTasks = computed(() =>
     this.tasksService.allTasks().filter((task) => task.userId === this.userId())
   );
+
+  private activatedRoute = inject(ActivatedRoute);
 }
