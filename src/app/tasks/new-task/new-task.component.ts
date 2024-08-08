@@ -28,5 +28,9 @@ export class NewTaskComponent {
       },
       this.userId()
     );
+
+    this.router.navigate(['/users', this.userId(), 'tasks'], {
+      replaceUrl: true,
+    });
   }
 }
