@@ -1,6 +1,6 @@
 <!-- <p>{{ userId() }}</p> -->
  <p>
-  <a routerLink="./" queryParams>
+  <a routerLink="./" [queryParams]="{ order: 'asc'}">
     Sort Ascending / Descending
   </a>
  </p>
